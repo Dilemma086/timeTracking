@@ -38,7 +38,7 @@ class ItemTrack{
                 <div>${this.description}</div>
                 <div>${this.duration}</div>
                 <div>${this.priceHour}</div>
-                <div>${this.totalPriceHour}</div>
+                <div>${this.totalPriceHour} р</div>
             </div>
         `
         blockDiv.append(this.elem)
@@ -48,9 +48,10 @@ class ItemTrack{
 
 function renderData(data){
     data.map((item, i) => {
-        const reg = new RegExp(item.duration);
-        console.log(reg);
-        const totalPriceHour = item.duration * item.priceHour
+        const reg = new RegExp("\\d+", "g")
+        const num = item.duration.match(reg).join('.')
+        const time = item.priceHour.match(reg).join('.')
+        const totalPriceHour = +num * +time
         new ItemTrack(`${item.day}`, `${item.timeStart}`, `${item.description}`, `${item.duration}`, `${item.priceHour}`, totalPriceHour).render();
         
     })
