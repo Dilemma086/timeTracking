@@ -1,0 +1,18 @@
+.title,
+.itemBlock{
+    display: flex;
+    justify-content: center;
+}
+.title > div,
+.itemBlock > div {
+    width: 150px;
+    
+    border: 1px #ccc solid;
+    text-align: center;
+}
+.title > div{
+    font-weight: 700;
+}
+.itemBlock > div{
+    font-weight: 400;
+}
