@@ -1,3 +1,5 @@
+// https://github.com/Dilemma086/timeTracking.git
+
 fetch('./data.json')
       .then(response => response.json())
       .then(json =>  renderData(json))
@@ -21,13 +23,14 @@ blockDiv.innerHTML=`
 class ItemTrack{
     elem = document.createElement('div')
     
-    constructor(day, timeStart, description, duration, priceHour, totalPriceHour){
+    constructor(day, timeStart, description, duration, priceHour, totalPriceHour, resultPrice){
         this.day = day;
         this.timeStart = timeStart;
         this.description = description;
         this.duration = duration;
         this.priceHour = priceHour
         this.totalPriceHour = totalPriceHour
+        this.resultPrice = resultPrice
     }
    
     render(){
@@ -42,8 +45,9 @@ class ItemTrack{
             </div>
         `
         blockDiv.append(this.elem)
+        console.log(this.resultPrice);
     }
-
+    
 }   
 
 function renderData(data){
@@ -52,7 +56,8 @@ function renderData(data){
         const num = item.duration.match(reg).join('.')
         const time = item.priceHour.match(reg).join('.')
         const totalPriceHour = +num * +time
-        new ItemTrack(`${item.day}`, `${item.timeStart}`, `${item.description}`, `${item.duration}`, `${item.priceHour}`, totalPriceHour).render();
-        
+        const startPrice = 0;
+        const resultPrice = startPrice + totalPriceHour
+        new ItemTrack(`${item.day}`, `${item.timeStart}`, `${item.description}`, `${item.duration}`, `${item.priceHour}`, totalPriceHour, resultPrice).render();
     })
 }
