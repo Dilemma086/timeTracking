@@ -42,6 +42,15 @@
     "description": "Исправление бага на главной странице",
     "duration": "0.5 часа",
     "priceHour": "300 р"
+},
+{
+    "year":"2023",
+    "month": "август",
+    "day": "16.08.2023",
+    "timeStart": "12:00",
+    "description": "SEO анализ сайта ecospas.ru",
+    "duration": "2 часа",
+    "priceHour": "300 р"
 }
 ]
 

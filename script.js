@@ -20,6 +20,8 @@ blockDiv.innerHTML=`
     </div>
 `
 
+const allMounthPrice = 0
+
 class ItemTrack{
     elem = document.createElement('div')
     
@@ -31,6 +33,7 @@ class ItemTrack{
         this.priceHour = priceHour
         this.totalPriceHour = totalPriceHour
         this.resultPrice = resultPrice
+        
     }
    
     render(){
@@ -56,8 +59,8 @@ function renderData(data){
         const num = item.duration.match(reg).join('.')
         const time = item.priceHour.match(reg).join('.')
         const totalPriceHour = +num * +time
-        const startPrice = 0;
-        const resultPrice = startPrice + totalPriceHour
+        const resultPrice = allMounthPrice + totalPriceHour
+        
         new ItemTrack(`${item.day}`, `${item.timeStart}`, `${item.description}`, `${item.duration}`, `${item.priceHour}`, totalPriceHour, resultPrice).render();
     })
 }
